@@ -1,0 +1,26 @@
+{
+  "name": "image-search",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shanehughes3/image-search.git"
+  },
+  "author": "Shane Hughes",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/shanehughes3/image-search/issues"
+  },
+  "homepage": "https://github.com/shanehughes3/image-search#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "googleapis": "^12.2.0",
+    "mongodb": "^2.2.5",
+    "mongoose": "^4.5.8"
+  }
+}
