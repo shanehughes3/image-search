@@ -1,5 +1,5 @@
 var db = require("./db"),
-    config = require("./dev-config"),
+    config = require("./config"),
     google = require("googleapis"),
     customsearch = google.customsearch("v1");
 

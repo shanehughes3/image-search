@@ -1,11 +1,16 @@
 var express = require("express"),
     app = express(),
     db = require("./db"),
-    config = require("./dev-config"),
-    api = require("./api");
+    config = require("./config"),
+    api = require("./api"),
+    markdown = require("marked-engine");
 
-app.get("/", function(req, res) {
-    
+app.set("views", __dirname);
+
+app.engine("md", markdown.renderFile);
+
+app.get(["/", "/search"], function(req, res) {
+    res.render("README.md");
 });
 
 app.get("/search/:searchKey", function(req, res) {
@@ -13,6 +18,7 @@ app.get("/search/:searchKey", function(req, res) {
 	 function(err, output) {
 	     if (err) {
 		 console.log(err);
+		 res.status(500).end();
 	     } else {
 		 res.writeHead(200, {"Content-Type":"application/json"});
 		 res.end(JSON.stringify(output));

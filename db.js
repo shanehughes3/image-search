@@ -1,4 +1,4 @@
-var config = require("./dev-config"),
+var config = require("./config"),
     mongoose = require("mongoose"),
     db = mongoose.connect(config.db),
     Schema = mongoose.Schema;
@@ -17,8 +17,6 @@ exports.logNewSearch = function(searchKey, offset) {
     newEntry.save(function(err) {
 	if (err) {
 	    console.log(err)
-	} else {
-	    console.log(newEntry);
 	}
     });
 };
