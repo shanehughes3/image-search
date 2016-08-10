@@ -9,6 +9,8 @@ app.set("views", __dirname);
 
 app.engine("md", markdown.renderFile);
 
+app.disable("etag"); // prevent blank page on 304
+
 app.get(["/", "/search"], function(req, res) {
     res.render("README.md");
 });
