@@ -12,11 +12,13 @@ app.engine("md", markdown.renderFile);
 app.disable("etag"); // prevent blank page on 304
 
 app.get(["/", "/search"], function(req, res) {
-    try {
-	res.render("README.md");
-    } catch (e) {
-	console.log(e);
-    }
+    res.render("README.md", function(err, html) {
+	if (err) {
+    	    console.log(err);
+	} else {
+	    res.end(html);
+	}
+    });
 });
 
 app.get("/search/:searchKey", function(req, res) {
